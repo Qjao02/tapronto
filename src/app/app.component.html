@@ -1,61 +1,66 @@
-<!doctype html>
+<header>
+  <nav class="navbar justify-content-center" style="background-color: #1A1B1D">
+    <!-- <a class="navbar-brand">PLACE HOLDER</a> -->
+    <form class="form-inline ">
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-primary active">
+          <input type="radio" name="options" id="option1" autocomplete="off"> Etapa 1
+        </label>
+        <label class="btn btn-primary">
+          <input type="radio" name="options" id="option2" autocomplete="off"> Etapa 2
+        </label>
+      </div>
+    </form>
+  </nav>
+</header>
 
-<nav class="navbar" style="background-color: #ffbf80">
-  <a class="navbar-brand">PLACE HOLDER</a>
-  <form class="form-inline">
-    <button class="btn btn-outline-success" type="button" (click)="setSelector1()">ETAPA 1</button>
-    <button class="btn btn-outline-success" type="button" (click)="setSelector2()">ETAPA 2</button>
-    <button class="btn btn-outline-success" type="button" (click)="setSelector3()">ETAPA 3</button>
-    <button class="btn btn-outline-success" type="button" (click)="setSelector4()">ETAPA 4</button>
-  </form>
-</nav>
+<main>
 
-<div *ngIf="sel === 1">
   <div class="jumbotron">
-    <h1 class="display-4">Etapa 1!</h1>
-    <p class="lead">Escolha o que deseja saber.</p>
-    <div>
-      <select name="text">
-        <option *ngFor="let current of options" (click)="onSelect(current)"> {{ current.desc }} </option>
-      </select>
-      <hr class="my-4">
+    <h1 class="display-3">Escolha o que deseja saber.</h1>
+    <select name="text">
+      <option value="">. . .</option>
+      <option value="" (click)="setSelector1()">C  </option>
+      <option value="" (click)="setSelector2()">Makefile  </option>
+    </select>
 
+
+    <!-- CÓDIGO PARA A LINGUAGEM C -->
+    <div *ngIf="sel === 1">
+      <hr class="my-4">
       <form>
+        <p class="lead">Escolha:</p>
         <div class="form-group">
-          <label for="exampleFormControlTextarea1">Código gerado:</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="7" readonly>{{ current }}</textarea>
+          <select name="text">
+            <option *ngFor="let current of options" (click)="onSelect(current)"> {{ current.desc }} </option>
+          </select>
+        </div>
+        <div class="form-group ">
+          <label for="varName">Nome da variável: </label>
+          <input type="password" class="form-control" id="varName" placeholder=". . .">
         </div>
       </form>
     </div>
 
-  </div>
-</div>
+    <!-- CÓDIGO PARA O MAKEFILE -->
+    <div *ngIf="sel === 2">
+    </div>
 
-<div *ngIf="sel === 2">
-  <div class="jumbotron">
-    <h1 class="display-4">Etapa 2!</h1>
-    <p class="lead">PLACE HOLDER PLACE HOLDER PLACE HOLDER PLACE HOLDER PLACE HOLDER PLACE HOLDER</p>
-    <hr class="my-4">
-    <a class="btn btn-primary btn-lg" href="#" role="button">BOTÃO ALEATÓRIO</a>
-  </div>
-</div>
 
-<div *ngIf="sel == 3">
-  <div class="jumbotron">
-    <h1 class="display-4">Etapa 3!</h1>
-    <p class="lead">TÁ SAINDO DA JAULA O MONSTRO!!</p>
     <hr class="my-4">
-    <a class="btn btn-primary btn-lg" href="#" role="button">HEHEHE HIHIHI</a>
+    <!-- AQUI APARECE O CÓDIGO GERADO  -->
+    <form>
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">Código gerado:</label>
+        <textarea class="form-control text-color-primary" rows="7" style="background-color: #1A1B1D; color: #00FFC4" readonly>{{ current }}</textarea>
+      </div>
+    </form>
   </div>
-</div>
 
-<div *ngIf="sel === 4">
-  <div class="jumbotron">
-    <h1 class="display-4">Etapa 4!</h1>
-    <p class="lead">
-      Pelos poderes da varinha mágica, que a árvore volte a ser a Simples Camponesa de Nobre Coração que vai Todos os Dias ao Bosque Recolher Lenha. Parangaricutirimírruaru
-    </p>
-    <hr class="my-4">
-    <a class="btn btn-primary btn-lg" href="#" role="button">MWAHAHAHAHAHA</a>
-  </div>
-</div>
+  <!-- <div class="jumbotron">
+      <h1 class="display-4">Etapa 2!</h1>
+      <p class="lead">PLACE HOLDER PLACE HOLDER PLACE HOLDER PLACE HOLDER PLACE HOLDER PLACE HOLDER</p>
+      <hr class="my-4">
+      <a class="btn btn-primary btn-lg" href="#" role="button">BOTÃO ALEATÓRIO</a>
+    </div> -->
+</main>
